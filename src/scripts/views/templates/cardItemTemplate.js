@@ -29,7 +29,7 @@ class CardItem extends HTMLElement {
             <div tabindex="0" id="${resto.id}" class="resto_card">
                 <div class="cover_Card">
                     <p class="lokasi_resto">Lokasi di ${resto.city}</p>
-                    <img class="lazyload" data-src="${CONFIG.MEDIUM_PICTURE}${resto.pictureId}" alt="Foto dari restaurant bernama ${resto.name}">
+                    <img class="lds-ring lazyload" data-src="${CONFIG.MEDIUM_PICTURE}${resto.pictureId}" alt="Foto dari restaurant bernama ${resto.name}">
                 </div>
                 <div class="descript">
                     <p class="rating">Rating: ${resto.rating}</p>
