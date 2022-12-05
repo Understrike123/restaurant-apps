@@ -1,16 +1,18 @@
-import LikedRestaurant from '../data/restoLikeDB';
-import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/templates/template_viewPage';
+/* eslint-disable max-len */
+import { createLikeButtonTemplate, createLikedButtonTemplate } from "../views/templates/templateButton";
 
+// isi mekanik dari like button
 const LikeButtonInitiator = {
-    async init({ likeButtonContent, resto }) {
+    async init({ likeButtonContent, likedRestoDB, restaurant }) {
         this._likeButtonContent = likeButtonContent;
-        this._resto = resto;
+        this._likedRestoDB = likedRestoDB;
+        this._restaurant = restaurant;
 
-        await this._renderLikeButton;
+        await this._renderLikeButton();
     },
 
     async _renderLikeButton() {
-        const { id } = this._resto;
+        const { id } = this._restaurant;
 
         if (await this._isRestoLiked(id)) {
             this._renderLiked();
@@ -20,29 +22,30 @@ const LikeButtonInitiator = {
     },
 
     async _isRestoLiked(id) {
-        const resto = await LikedRestaurant.GET_list(id);
+        const resto = await this._likedRestoDB.get_RESTO(id);
         return !!resto;
     },
 
-    _renderLiked() {
-        this._likeButtonContainer.innerHTML = createLikedButtonTemplate();
-
-        const likeButton = document.querySelector('#likeButton');
-        likeButton.addEventListener('click', async () => {
-            await LikedRestaurant.delete_Resto(this._resto.id);
-            this._renderLikeButton();
-        });
-    },
-
     _renderLike() {
-        this._likeButtonContainer.innerHTML = createLikeButtonTemplate();
+        this._likeButtonContent.innerHTML = createLikeButtonTemplate();
 
         const likeButton = document.querySelector('#likeButton');
         likeButton.addEventListener('click', async () => {
-            await LikedRestaurant.put_Resto(this._resto);
+            await this._likedRestoDB.put_Resto(this._restaurant);
             this._renderLikeButton();
         });
     },
+
+    _renderLiked() {
+        this._likeButtonContent.innerHTML = createLikedButtonTemplate();
+
+        const likeButton = document.querySelector('#likeButton');
+        likeButton.addEventListener('click', async () => {
+            await this._likedRestoDB.delete_Resto(this._restaurant.id);
+            this._renderLikeButton();
+        });
+    },
+
 };
 
 export default LikeButtonInitiator;

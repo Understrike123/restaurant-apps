@@ -1,11 +1,12 @@
-import HomePage from '../views/pages/home';
 import FavoritePage from '../views/pages/favorite';
 import detailResto from '../views/pages/detail_resto';
+import HomePage from '../views/pages/home';
 
+// file routes apabila ingin men akses file lain dari navigasi
 const routes = {
     '/': HomePage,
-    '/Home': HomePage,
-    '/Favorite': FavoritePage,
+    '/home': HomePage,
+    '/favorite': FavoritePage,
     '/detail/:id': detailResto,
 };
 

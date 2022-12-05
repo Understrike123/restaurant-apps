@@ -3,6 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const common = require('./webpack.common');
 
+// file webpack untuk webpack development environment
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',

@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const common = require('./webpack.common');
 
+// file webpack pada production environment
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',

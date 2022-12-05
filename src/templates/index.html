@@ -8,44 +8,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="manifest" href="./app.webmanifest">
-  <meta name="theme-color" content="#DB0000" />
+  <meta name="theme-color" content="#2e5b7a" />
   <link rel="apple-touch-icon" href="./img/icon-96x96.png">
-  <script src="https://use.fontawesome.com/ff5d154097.js"></script>
-  <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous">
+  <meta name="description"
+    content="Aplikasi untuk menemukan restoran yang ada di sekitar anda, beserta informasi dari restoran tersebut.">
   <title>Go Go Restaurant</title>
 </head>
 
 <body>
-  <a tabindex="0" href="#daftar_resto" class="skip-link">Shortcut menuju ke daftar restaurant</a>
+  <a tabindex="0" href="#main_content" class="skip-link">Shortcut menuju ke daftar restaurant</a>
 
   <header>
-    <div id="app_bar" class="nav">
-      <h1>Go Go Restaurant</h1>
-      <div id="drawer">
-        <div class="nav_item">
-          <a href="#/Home">Home</a>
-          <a href="#/Favorite">Favorite</a>
-          <a href="https://github.com/Understrike123">About Us</a>
-        </div>
-      </div>
-    </div>
     <div class="toggle_button">
       <center>
         <button tabindex="0" aria-label="tombol navigasi tersembunyi" id="nav_toggle" href="#">☰</button>
       </center>
+    </div>
+    <div id="app_bar" class="nav">
+      <h1>Go Go Restaurant</h1>
+      <div id="drawer">
+        <div class="nav_item">
+          <a id="navbar_home" href="/#/Home">Home</a>
+          <a id="navbar_favorite" href="/#/Favorite">Favorite</a>
+          <a id="navbar_about" href="https://github.com/Understrike123">About Us</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <!--Saya menggunakan gambar nomor 2 untuk foto jumbatron-->
   <div class="hero">
     <figure class="hero_content">
-      <img src="./images/heros/hero-image_2.jpg" width="450" alt="Foto Jumbotron aplikasi GO Go Restaurant">
+      <picture>
+        <source media="(max-width: 586px)" srcset="./images/hero-image_2-small.jpg">
+        <img src="./images/hero-image_2-large.jpg" width="450" alt="Foto Jumbotron aplikasi GO Go Restaurant">
+      </picture>
       <figcaption>Aplikasi pencarian restaurant yang terpercaya</figcaption>
     </figure>
   </div>
-
-  <main id="main_content">
-
+  <div class="lds-dual-ring"></div>
+  <main tabindex="0" id="main_content">
   </main>
   <footer>
     <p>&copy; 2022, Muhammad Ilham Febriana</p><br>

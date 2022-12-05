@@ -1,3 +1,4 @@
+// isi mekanik dari hidden navigasi burger button
 const HiddenBar = {
     init({ button, drawer, content }) {
         const hero = document.querySelector('.hero');
